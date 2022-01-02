@@ -1,6 +1,6 @@
 import { useState } from "#app";
 import { useQuery, useResult } from "@vue/apollo-composable";
-import { shopQuery } from "~/apollo/queries/queryShop";
+import { shopQuery } from "~~/apollo/queries/shop";
 import { useShopStore } from "~/stores/shop";
 
 export const useShopData = () => {

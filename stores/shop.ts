@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import { useApolloClient } from "@vue/apollo-composable";
-import { shopQuery } from "~/apollo/queries/queryShop";
+import { shopQuery } from "~~/apollo/queries/shop";
 
 export const useShopStore = defineStore("shop", {
   state: () => {
@@ -15,13 +15,13 @@ export const useShopStore = defineStore("shop", {
       try {
         const { resolveClient } = useApolloClient();
         const apolloClient = resolveClient();
-        const response = await apolloClient.query({
+        const { data } = await apolloClient.query({
           query: shopQuery,
         });
-        if (!response) {
-          throw "getShopData: no respone";
+        if (!data.shop) {
+          throw "getShopData: no response";
         }
-        this.setShopDescription(response.data?.shop.description ?? "");
+        this.setShopDescription(data.shop?.description ?? "");
       } catch (e) {
         return e;
       } finally {
