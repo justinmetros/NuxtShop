@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>Test</div>
+    <div>About</div>
     <div>
       <NuxtLink to="/">To Index</NuxtLink>
     </div>
