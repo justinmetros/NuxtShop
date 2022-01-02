@@ -1,22 +1,24 @@
+import { useState } from "#app";
 import { useQuery, useResult } from "@vue/apollo-composable";
-import gql from "graphql-tag";
+import { shopQuery } from "~/apollo/queries/queryShop";
+import { useShopStore } from "~/stores/shop";
 
-const ShopQuery = gql`
-  query {
-    shop {
-      description
-    }
-  }
-`;
+export const useShopData = () => {
+  const { result, loading, error, onResult } = useQuery(shopQuery, null, {
+    fetchPolicy: "cache-and-network",
+  });
+  const description = useResult(result, null, (data) => data.shop.description);
 
-export function useShopData() {
-  const { result, loading, error } = useQuery(ShopQuery);
+  onResult((queryResult) => {
+    const shopStore = useShopStore();
+    shopStore.setShopDescription(queryResult.data?.shop?.description ?? "");
+  });
 
-  const shop = useResult(result, null, (data) => data.shop);
-
-  return {
-    shop,
-    loading,
-    error,
-  };
-}
+  return useState("shopDataQuery", () => {
+    return {
+      description,
+      loading,
+      error,
+    };
+  });
+};

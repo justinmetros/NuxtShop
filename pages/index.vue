@@ -1,19 +1,17 @@
 <template>
   <div>
     <div>Index</div>
+    <div class="m-4 p-4 border-2 border-red-900">{{ description }}</div>
     <div>
       <NuxtLink to="/test">To Test</NuxtLink>
     </div>
-    <!-- <div v-if="loading" class="m-3 p-3">loading</div>
-    <div v-else class="m-3 p-3">{{ shop.description }}</div> -->
   </div>
 </template>
 
 <script setup>
-const { data } = await useAsyncData("shop", () => {
-  const { shop, loading } = useShopData();
-  console.log(shop.value);
-  console.log(loading.value);
-});
-console.log(data);
+import { storeToRefs } from "pinia";
+import { useShopStore } from "~/stores/shop";
+
+const shopStore = useShopStore();
+const { description } = storeToRefs(shopStore);
 </script>
