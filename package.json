@@ -10,6 +10,7 @@
   },
   "devDependencies": {
     "@apollo/client": "^3.5.6",
+    "@heroicons/vue": "^1.0.5",
     "@nuxt/types": "^2.15.8",
     "@pinia/nuxt": "^0.1.8",
     "@vue/apollo-composable": "^4.0.0-alpha.16",
