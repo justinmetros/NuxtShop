@@ -27,3 +27,15 @@ yarn build
 ```
 
 Checkout the [deployment documentation](https://v3.nuxtjs.org/docs/deployment).
+
+# Notes
+
+### Shopify Setup
+
+- Shopify store with private app
+- Make All collection in Shopify
+
+### App Setup
+
+- rename .env.sample to .env
+- Add access token and shop name
