@@ -1,6 +1,9 @@
 <template>
   <header
     class="
+      sticky
+      top-0
+      bg-white
       grid
       grid-cols-[200px_auto_200px]
       mb-2

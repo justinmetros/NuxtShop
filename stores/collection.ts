@@ -1,5 +1,4 @@
 import { defineStore } from "pinia";
-import { Ref } from "vue";
 import { useApolloClient } from "@vue/apollo-composable";
 import { collectionByHandle } from "~/apollo/queries/collectionByHandle";
 
@@ -39,7 +38,6 @@ export const useCollectionStore = defineStore("collection", {
         this.description = data.collectionByHandle.description;
         this.products = data.collectionByHandle.products.edges;
         return data;
-        // this.setShopDescription(response.data?.shop.description ?? "");
       } catch (e) {
         return e;
       } finally {

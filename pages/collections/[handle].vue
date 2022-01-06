@@ -8,7 +8,9 @@
         <p v-if="title">{{ title }}</p>
         <div v-if="description" v-html="description"></div>
       </header>
-      <section class="grid grid-cols-4 gap-4">
+      <section
+        class="grid grid-cols-2 gap-4 mx-4 md:mx-auto md:max-w-6xl md:grid-cols-4"
+      >
         <ProductCard
           v-for="product in products"
           :key="product.node.id"

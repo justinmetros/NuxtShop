@@ -1,3 +1,3 @@
 <template>
-  <div class="text-lg bold">NuxtShop</div>
+  <NuxtLink to="/" class="text-lg bold">NuxtShop</NuxtLink>
 </template>
