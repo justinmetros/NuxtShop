@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "nuxi dev",
     "build": "nuxi build",
-    "start": "node .output/server/index.mjs"
+    "start": "node .output/server/index.mjs",
+    "get-shopify-fragment-types": "node ./apollo/schemaQuery.mjs"
   },
   "devDependencies": {
     "@apollo/client": "^3.5.6",
