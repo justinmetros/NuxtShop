@@ -4,3 +4,20 @@ export const stripZeros = (price: number): number => {
   }
   return price;
 };
+
+export const formatWithCurrency = (
+  currencySymbol: string,
+  price: number
+): string => {
+  return `${currencySymbol}${price}`;
+};
+
+export const formatLocalePrice = (
+  price: number,
+  locale: string,
+  currency: string
+) => {
+  return new Intl.NumberFormat(locale, { style: "currency", currency }).format(
+    price
+  );
+};

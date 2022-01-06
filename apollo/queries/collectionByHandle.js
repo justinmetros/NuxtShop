@@ -1,7 +1,7 @@
 import { gql } from "graphql-tag";
 
 export const collectionByHandle = gql`
-  query collectionByHandle(
+  query collection(
     $handle: String!
     $sortKey: ProductCollectionSortKeys
     $reverse: Boolean
@@ -16,11 +16,21 @@ export const collectionByHandle = gql`
         originalSrc
         transformedSrc(maxWidth: 3000)
       }
-      products(first: 24, sortKey: $sortKey, reverse: $reverse) {
+      products(first: 48, sortKey: $sortKey, reverse: $reverse) {
         edges {
           cursor
           node {
             id
+            compareAtPriceRange {
+              maxVariantPrice {
+                amount
+                currencyCode
+              }
+              minVariantPrice {
+                amount
+                currencyCode
+              }
+            }
             description
             availableForSale
             handle
@@ -33,12 +43,6 @@ export const collectionByHandle = gql`
                 node {
                   id
                   title
-                  priceV2 {
-                    amount
-                  }
-                  compareAtPriceV2 {
-                    amount
-                  }
                   availableForSale
                   sku
                 }
@@ -47,9 +51,11 @@ export const collectionByHandle = gql`
             priceRange {
               maxVariantPrice {
                 amount
+                currencyCode
               }
               minVariantPrice {
                 amount
+                currencyCode
               }
             }
             images(first: 2) {

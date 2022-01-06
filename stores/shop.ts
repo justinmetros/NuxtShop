@@ -5,9 +5,16 @@ import { shopQuery } from "~~/apollo/queries/shop";
 export const useShopStore = defineStore("shop", {
   state: () => {
     return {
-      moneyFormat: "$",
-      loading: false,
       description: "",
+      loading: false,
+      localization: {
+        country: {
+          currency: {
+            isoCode: "USD",
+          },
+        },
+      },
+      moneyFormat: "$",
     };
   },
   actions: {
@@ -19,22 +26,19 @@ export const useShopStore = defineStore("shop", {
         const { data } = await apolloClient.query({
           query: shopQuery,
         });
+
         if (!data.shop) {
           throw "getShopData: no response";
         }
-        this.setMoneyFormat(data.shop?.moneyFormat ?? "$");
-        this.setShopDescription(data.shop?.description ?? "");
+
+        this.description = data.shop?.description ?? "";
+        this.moneyFormat = data.shop?.moneyFormat ?? "$";
+        this.localization = data.localization ?? {};
       } catch (e) {
         return e;
       } finally {
         this.loading = false;
       }
-    },
-    setMoneyFormat(value: string) {
-      this.moneyFormat = value;
-    },
-    setShopDescription(value: string) {
-      this.description = value;
     },
   },
 });
