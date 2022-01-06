@@ -2,7 +2,7 @@ module.exports = {
   client: {
     service: {
       name: "nuxt-shop",
-      url: "http://localhost:4000/graphql",
+      url: "http://localhost:3000/graphql",
     },
     includes: ["./**/*.vue", "./**/*.js", "./**/*.ts"],
   },
