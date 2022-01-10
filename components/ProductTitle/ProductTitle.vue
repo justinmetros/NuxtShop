@@ -1,14 +1,19 @@
 <template>
-  <component :is="tag" :variant="variant" :class="classes">
+  <component
+    v-if="title"
+    :is="tag || 'div'"
+    :variant="variant"
+    :class="classes"
+  >
     {{ title }}
   </component>
 </template>
 
 <script setup lang="ts">
 const props = defineProps<{
-  tag: string;
+  tag?: string;
   title: string;
-  variant: string;
+  variant?: string;
 }>();
 
 const { tag, title, variant } = toRefs(props);
