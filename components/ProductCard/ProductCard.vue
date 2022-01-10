@@ -7,8 +7,7 @@
         class=""
       />
     </div>
-    <div>{{ product.title }}</div>
-
+    <ProductTitle tag="div" :title="product.title" variant="card" />
     <ProductPrice
       :priceRange="product.priceRange"
       :compareAtPriceRange="product.compareAtPriceRange"
