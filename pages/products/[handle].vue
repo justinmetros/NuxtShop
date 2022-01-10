@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="pending">Loading...</div>
+    <!-- <div v-if="pending">Loading...</div>
     <div v-else-if="error">Error</div>
     <div v-else-if="data && product">
       <ProductTitle tag="h1" :title="product.title" variant="product" />
@@ -14,7 +14,7 @@
         :src="product.images.edges[0].node.transformedSrc"
         :alt="product.handle"
       />
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -23,15 +23,16 @@ import { storeToRefs } from "pinia";
 import { useProductStore } from "~/stores/product";
 
 const productStore = useProductStore();
+const { product } = storeToRefs(productStore);
 
 const route = useRoute();
 const handle = route.params.handle.toString();
 
 const { data, pending, error } = await useAsyncData(handle, () => {
-  return productStore.getProductByHandle(handle);
+  // return productStore.getProductByHandle(handle);
+  const data = $fetch("/api/product");
+  return data;
 });
-
-const { product } = storeToRefs(productStore);
 
 useMeta({
   meta: [{ description: product.value.description }],

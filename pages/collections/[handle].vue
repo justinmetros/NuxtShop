@@ -26,6 +26,7 @@ import { useCollectionStore } from "~/stores/collection";
 
 const collectionStore = useCollectionStore();
 const { title, description, products } = storeToRefs(collectionStore);
+
 const route = useRoute();
 const handle = route.params.handle.toString();
 
