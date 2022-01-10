@@ -2,9 +2,8 @@
   <div>
     <div v-if="pending">Loading...</div>
     <div v-else-if="error">Error</div>
-    <div v-else>
+    <div v-else-if="data">
       <header class="mb-4 text-center">
-        Collection: {{ $route.params.handle }}
         <p v-if="title">{{ title }}</p>
         <div v-if="description" v-html="description"></div>
       </header>
@@ -27,10 +26,10 @@ import { useCollectionStore } from "~/stores/collection";
 
 const collectionStore = useCollectionStore();
 const { title, description, products } = storeToRefs(collectionStore);
+const route = useRoute();
+const handle = route.params.handle.toString();
 
-const { pending, error } = await useAsyncData("collection", () => {
-  const route = useRoute();
-  const handle = route.params.handle;
+const { data, pending, error } = await useAsyncData(handle, () => {
   return collectionStore.getCollectionByHandle(handle);
 });
 </script>

@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import { useApolloClient } from "@vue/apollo-composable";
-import { productByHandle } from "~/apollo/queries/productByHandle";
+import { productByHandle } from "~~/apollo/queries/productByHandle";
 
 export const useProductStore = defineStore("product", {
   state: () => {
@@ -8,6 +8,8 @@ export const useProductStore = defineStore("product", {
       product: {
         availableForSale: false,
         compareAtPriceRange: <PriceRange>{},
+        description: "",
+        descriptionHtml: "",
         handle: "",
         id: "",
         images: <any>{},
@@ -33,11 +35,13 @@ export const useProductStore = defineStore("product", {
             handle,
           },
         });
+        console.log(data.productByHandle);
         if (!data.productByHandle) {
+          console.log("error");
           throw new Error("getProductByHandle: product not found");
         }
         this.product = data.productByHandle;
-        return data;
+        return data.productByHandle;
       } catch (e) {
         return e;
       } finally {

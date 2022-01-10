@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import { useApolloClient } from "@vue/apollo-composable";
-import { collectionByHandle } from "~/apollo/queries/collectionByHandle";
+import { collectionByHandle } from "~~/apollo/queries/collectionByHandle";
 
 export const useCollectionStore = defineStore("collection", {
   state: () => {
@@ -31,13 +31,15 @@ export const useCollectionStore = defineStore("collection", {
             reverse,
           },
         });
+        console.log(data.collectionByHandle);
         if (!data.collectionByHandle) {
-          throw new Error("fetchCollectionByHandle: collection not found");
+          console.log("error");
+          throw new Error("getCollectionByHandle: collection not found");
         }
         this.title = data.collectionByHandle.title;
         this.description = data.collectionByHandle.description;
         this.products = data.collectionByHandle.products.edges;
-        return data;
+        return data.collectionByHandle;
       } catch (e) {
         return e;
       } finally {

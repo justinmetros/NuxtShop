@@ -1,7 +1,9 @@
 <template>
-  <component v-if="vendor" :is="element">
-    {{ vendor }}
-  </component>
+  <div>
+    <component v-if="vendor" :is="element">
+      {{ vendor }}
+    </component>
+  </div>
 </template>
 
 <script setup lang="ts">

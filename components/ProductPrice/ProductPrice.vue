@@ -1,22 +1,22 @@
 <template>
   <div class="flex">
     <div v-if="priceVaries">
-      {{ formatPrice(priceRange.minVariantPrice.amount) }}
+      {{ formatPrice(priceRange?.minVariantPrice?.amount) }}
       -
-      {{ formatPrice(priceRange.maxVariantPrice.amount) }}
+      {{ formatPrice(priceRange?.maxVariantPrice?.amount) }}
     </div>
     <div v-else>
-      {{ formatPrice(priceRange.minVariantPrice.amount) }}
+      {{ formatPrice(priceRange?.minVariantPrice?.amount) }}
     </div>
 
     <div v-if="isOnSale" class="ml-2 line-through opacity-50">
       <div v-if="compareAtPriceVaries">
-        {{ formatPrice(compareAtPriceRange.minVariantPrice.amount) }}
+        {{ formatPrice(compareAtPriceRange?.minVariantPrice?.amount) }}
         -
-        {{ formatPrice(compareAtPriceRange.maxVariantPrice.amount) }}
+        {{ formatPrice(compareAtPriceRange?.maxVariantPrice?.amount) }}
       </div>
       <div v-else>
-        {{ formatPrice(compareAtPriceRange.minVariantPrice.amount) }}
+        {{ formatPrice(compareAtPriceRange?.minVariantPrice?.amount) }}
       </div>
     </div>
   </div>
@@ -37,16 +37,16 @@ const { localization } = storeToRefs(shopStore);
 const currencyCode = localization.value?.country?.currency?.isoCode ?? "USD";
 
 const priceVaries =
-  props.priceRange.minVariantPrice.amount <
-  props.priceRange.maxVariantPrice.amount;
+  props?.priceRange?.minVariantPrice?.amount <
+  props?.priceRange?.maxVariantPrice?.amount;
 
 const compareAtPriceVaries =
-  props.compareAtPriceRange.minVariantPrice.amount <
-  props.compareAtPriceRange.maxVariantPrice.amount;
+  props?.compareAtPriceRange?.minVariantPrice?.amount <
+  props?.compareAtPriceRange?.maxVariantPrice?.amount;
 
 const isOnSale =
-  props.priceRange.minVariantPrice.amount <
-  props.compareAtPriceRange.minVariantPrice.amount;
+  props?.priceRange?.minVariantPrice?.amount <
+  props?.compareAtPriceRange?.minVariantPrice?.amount;
 
 function formatPrice(price: number) {
   return formatLocalePrice(price, "en-US", currencyCode);

@@ -1,12 +1,14 @@
 <template>
-  <component
-    v-if="title"
-    :is="tag || 'div'"
-    :variant="variant"
-    :class="classes"
-  >
-    {{ title }}
-  </component>
+  <div>
+    <component
+      v-if="title"
+      :is="tag || 'div'"
+      :variant="variant"
+      :class="classes"
+    >
+      {{ title }}
+    </component>
+  </div>
 </template>
 
 <script setup lang="ts">
