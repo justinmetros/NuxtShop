@@ -3,6 +3,12 @@
     <div v-if="loading">Loading...</div>
     <div v-else-if="error">Error</div>
     <div v-else>
+      <Html>
+        <Head v-if="product?.title && product.description">
+          <Title>{{ product.title }}</Title>
+          <Meta name="description" :content="product.description" />
+        </Head>
+      </Html>
       <ProductTitle tag="h1" :title="product.title" variant="product" />
       <ProductPrice
         :priceRange="product.priceRange"
@@ -30,18 +36,4 @@ const { result, loading, error } = useQuery(productByHandle, {
   handle,
 });
 const product = useResult(result, null, (data) => data.productByHandle);
-
-// Use api route
-// const {
-//   data: product,
-//   pending: loading,
-//   error,
-// } = await useLazyFetch("/api/product", {
-//   params: { handle },
-// });
-
-// useMeta({
-//   meta: [{ description: product.value.description }],
-//   title: product.value.title,
-// });
 </script>

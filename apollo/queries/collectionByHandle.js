@@ -17,6 +17,7 @@ export const collectionByHandle = gql`
         transformedSrc(maxWidth: 3000)
         width
       }
+      title
       products(first: 48, sortKey: $sortKey, reverse: $reverse) {
         edges {
           cursor

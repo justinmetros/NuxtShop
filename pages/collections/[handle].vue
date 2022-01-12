@@ -1,12 +1,17 @@
 <template>
-  <div class="collection">
+  <div>
     <div v-if="loading">Loading...</div>
     <div v-else-if="error">Error</div>
     <div v-else>
-      <!-- Msg: {{ data }} -->
+      <Html>
+        <Head v-if="collection?.title && collection?.description">
+          <Title>{{ collection?.title || "" }}</Title>
+          <Meta name="description" :content="collection?.description || ''" />
+        </Head>
+      </Html>
       <header class="mb-4 text-center">
-        <p v-if="collection.title">{{ collection.title }}</p>
-        <div v-if="collection.descriptionHtml">
+        <p>{{ collection.title }}</p>
+        <div>
           {{ collection.descriptionHtml }}
         </div>
       </header>
@@ -31,20 +36,6 @@ import { collectionByHandle } from "~~/apollo/queries/collectionByHandle";
 const route = useRoute();
 const handle = route.params.handle;
 
-// Use useQuery composable
 const { result, loading, error } = useQuery(collectionByHandle, { handle });
 const collection = useResult(result, null, (data) => data.collectionByHandle);
-
-// Use Api route
-// const {
-//   data: collection,
-//   pending: loading,
-//   error,
-// } = await useLazyFetch("/api/collection", {
-//   params: { handle },
-// });
-
-// const { data, pending, error } = await useAsyncData(handle, () => {
-//   return collectionStore.getCollectionByHandle(handle);
-// });
 </script>
