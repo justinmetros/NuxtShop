@@ -1,6 +1,5 @@
-import pkg from "@apollo/client/core/core.cjs";
-
-const { createHttpLink, InMemoryCache, ApolloClient } = pkg;
+import { InMemoryCache, ApolloClient } from "@apollo/client/core/core.cjs";
+import { createHttpLink } from "@apollo/client/link/http/http.cjs";
 
 const httpLink = createHttpLink({
   credentials: "omit",
