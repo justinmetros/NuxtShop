@@ -1,21 +1,21 @@
 import { useQuery } from "h3";
 import { apolloClient } from "../apolloClient";
-import { productByHandle } from "~/apollo/queries/productByHandle";
+import { collectionByHandle } from "~/apollo/queries/collectionByHandle";
 
 export default async (req) => {
   const { handle } = useQuery(req);
   try {
     const { data } = await apolloClient.query({
-      query: productByHandle,
+      query: collectionByHandle,
       variables: {
         handle,
       },
     });
-    if (!data.productByHandle) {
+    if (!data.collectionByHandle) {
       console.log("error");
-      throw new Error("getProductByHandle: product not found");
+      throw new Error("getCollectionByHandle: collection not found");
     }
-    return data.productByHandle;
+    return data.collectionByHandle;
   } catch (e) {
     return e;
   } finally {

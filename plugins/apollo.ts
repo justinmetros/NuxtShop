@@ -3,16 +3,19 @@ import {
   InMemoryCache,
   createHttpLink,
 } from "@apollo/client/core";
-import { provideApolloClient } from "@vue/apollo-composable";
+import {
+  DefaultApolloClient,
+  provideApolloClient,
+} from "@vue/apollo-composable";
 import { defineNuxtPlugin, NuxtApp } from "#app";
 
-export default defineNuxtPlugin((nuxt: NuxtApp) => {
+export default defineNuxtPlugin((nuxtApp: NuxtApp) => {
   const httpLink = createHttpLink({
     credentials: "omit",
-    uri: nuxt.payload.config.SHOPIFY_STOREFRONT_ENDPOINT,
+    uri: nuxtApp.payload.config.SHOPIFY_STOREFRONT_ENDPOINT,
     headers: {
       "X-Shopify-Storefront-Access-Token":
-        nuxt.payload.config.SHOPIFY_STOREFRONT_ACCESS_TOKEN,
+        nuxtApp.payload.config.SHOPIFY_STOREFRONT_ACCESS_TOKEN,
     },
   });
 
@@ -24,19 +27,21 @@ export default defineNuxtPlugin((nuxt: NuxtApp) => {
     apolloClient = new ApolloClient({
       ssrMode: true,
       link: httpLink,
-      cache: new InMemoryCache(),
+      cache,
     });
-    nuxt.hook("app:rendered", () => {
-      nuxt.payload.data["apollo"] = apolloClient.extract();
+    nuxtApp.hook("app:rendered", () => {
+      nuxtApp.payload.data.apollo = apolloClient.extract();
     });
   } else {
-    cache.restore(nuxt.payload.data["apollo"]);
+    // if (nuxtApp.payload.data.apollo) {
+    //   cache.restore(nuxtApp.payload.data.apollo);
+    // }
     apolloClient = new ApolloClient({
       link: httpLink,
-      cache: cache,
+      cache,
     });
   }
 
   provideApolloClient(apolloClient);
-  nuxt.provide("apollo", { apolloClient });
+  nuxtApp.provide("apollo", { DefaultApolloClient, apolloClient });
 });

@@ -51,13 +51,6 @@ export const productByHandle = gql`
         edges {
           cursor
           node {
-            compareAtPriceV2 {
-              amount
-            }
-            id
-            priceV2 {
-              amount
-            }
             title
             quantityAvailable
             selectedOptions {

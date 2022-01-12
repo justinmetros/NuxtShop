@@ -1,8 +1,8 @@
 <template>
   <div>
-    <!-- <div v-if="pending">Loading...</div>
+    <div v-if="loading">Loading...</div>
     <div v-else-if="error">Error</div>
-    <div v-else-if="data && product">
+    <div v-else>
       <ProductTitle tag="h1" :title="product.title" variant="product" />
       <ProductPrice
         :priceRange="product.priceRange"
@@ -14,28 +14,34 @@
         :src="product.images.edges[0].node.transformedSrc"
         :alt="product.handle"
       />
-    </div> -->
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { storeToRefs } from "pinia";
-import { useProductStore } from "~/stores/product";
-
-const productStore = useProductStore();
-const { product } = storeToRefs(productStore);
+import { useQuery, useResult } from "@vue/apollo-composable";
+import { productByHandle } from "~/apollo/queries/productByHandle";
 
 const route = useRoute();
-const handle = route.params.handle.toString();
+const handle = route.params.handle;
 
-const { data, pending, error } = await useAsyncData(handle, () => {
-  // return productStore.getProductByHandle(handle);
-  const data = $fetch("/api/product");
-  return data;
+// Use useQuery composable
+const { result, loading, error } = useQuery(productByHandle, {
+  handle,
 });
+const product = useResult(result, null, (data) => data.productByHandle);
 
-useMeta({
-  meta: [{ description: product.value.description }],
-  title: product.value.title,
-});
+// Use api route
+// const {
+//   data: product,
+//   pending: loading,
+//   error,
+// } = await useLazyFetch("/api/product", {
+//   params: { handle },
+// });
+
+// useMeta({
+//   meta: [{ description: product.value.description }],
+//   title: product.value.title,
+// });
 </script>

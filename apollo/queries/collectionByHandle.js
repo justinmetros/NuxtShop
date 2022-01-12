@@ -7,20 +7,21 @@ export const collectionByHandle = gql`
     $reverse: Boolean
   ) {
     collectionByHandle(handle: $handle) {
-      title
       description
+      descriptionHtml
       handle
       id
       image {
         altText
-        originalSrc
+        height
         transformedSrc(maxWidth: 3000)
+        width
       }
       products(first: 48, sortKey: $sortKey, reverse: $reverse) {
         edges {
           cursor
           node {
-            id
+            availableForSale
             compareAtPriceRange {
               maxVariantPrice {
                 amount
@@ -32,19 +33,15 @@ export const collectionByHandle = gql`
               }
             }
             description
-            availableForSale
             handle
-            title
             id
-            tags
-            productType
-            variants(first: 100) {
+            images(first: 2) {
               edges {
                 node {
+                  height
                   id
-                  title
-                  availableForSale
-                  sku
+                  transformedSrc(maxWidth: 2048)
+                  width
                 }
               }
             }
@@ -58,11 +55,16 @@ export const collectionByHandle = gql`
                 currencyCode
               }
             }
-            images(first: 2) {
+            productType
+            tags
+            title
+            variants(first: 100) {
               edges {
                 node {
                   id
-                  transformedSrc(maxWidth: 1024)
+                  title
+                  availableForSale
+                  sku
                 }
               }
             }
