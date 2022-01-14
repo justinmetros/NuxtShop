@@ -18,13 +18,12 @@
         :priceRange="product.priceRange"
         :compareAtPriceRange="product.compareAtPriceRange"
       />
-      <ProductVendor :vendor="product.vendor" />
       <ProductVariants
         label="Select Size & Color"
         :variants="product.variants.edges"
       />
+      <ProductAddToCart />
       <ProductDescription :description="product.descriptionHtml" />
-      <div v-if="hasSelectedVariantId">has variant</div>
     </div>
   </div>
 </template>
