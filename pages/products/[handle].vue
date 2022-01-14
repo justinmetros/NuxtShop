@@ -30,10 +30,8 @@
 
 <script setup lang="ts">
 import { useQuery, useResult } from "@vue/apollo-composable";
-import { useProductStore } from "~/stores/product";
-import { productByHandle } from "~/apollo/queries/productByHandle";
+import { productByHandle } from "~~/apollo/queries/productByHandle";
 
-const productStore = useProductStore();
 const route = useRoute();
 const handle = route.params.handle;
 
@@ -41,6 +39,4 @@ const { result, loading, error } = useQuery(productByHandle, {
   handle,
 });
 const product = useResult(result, null, (data) => data.productByHandle);
-
-const hasSelectedVariantId = computed(() => productStore.selectedVariantId);
 </script>

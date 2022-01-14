@@ -23,7 +23,7 @@ export const useCartStore = defineStore("cart", {
   },
   actions: {
     toggleCart(state?: boolean) {
-      if (state) {
+      if (typeof state === "boolean") {
         this.cartOpen = state;
       } else {
         this.cartOpen = !this.cartOpen;
