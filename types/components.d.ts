@@ -20,3 +20,20 @@ interface ProductCard {
   title: string;
   variants: object;
 }
+
+interface VariantObject {
+  availableForSale: boolean;
+  id: string;
+  quantityAvailable: number;
+  sku: string;
+  title: string;
+}
+interface Variant {
+  node: VariantObject;
+}
+
+interface Option {
+  id: string;
+  name: string;
+  values: string[];
+}
