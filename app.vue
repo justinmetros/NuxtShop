@@ -1,6 +1,7 @@
 <template>
   <div>
     <Header />
+    <Cart />
     <main class="min-h-[80vh]">
       <NuxtPage />
     </main>
