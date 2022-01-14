@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="loading">Loading...</div>
+    <LoaderPage v-if="loading" />
     <div v-else-if="error">Error</div>
     <div v-else>
       <Html>
