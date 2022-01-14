@@ -14,6 +14,7 @@
       <div>qty: {{ item.node.quantity }}</div>
       <div>{{ item.node.estimatedCost.totalAmount.amount }}</div>
     </div>
+    <a :href="cartStore.cart.checkoutUrl">Checkout</a>
   </section>
 </template>
 
