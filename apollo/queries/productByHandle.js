@@ -51,13 +51,19 @@ export const productByHandle = gql`
         edges {
           cursor
           node {
-            title
+            availableForSale
+            id
+            priceV2 {
+              amount
+              currencyCode
+            }
             quantityAvailable
             selectedOptions {
               name
               value
             }
             sku
+            title
           }
         }
       }
