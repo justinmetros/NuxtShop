@@ -9,7 +9,7 @@
       <option
         v-for="variant: Variant in variants"
         :key="variant.node.id"
-        :disabled="variant.node.availableForSale"
+        :disabled="!variant.node.availableForSale"
         :value="variant.node.id"
       >
         {{ variant.node.title }}
