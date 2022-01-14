@@ -1,22 +1,21 @@
 <template>
   <div>
     <Header />
-    <NuxtPage />
+    <main class="min-h-[80vh]">
+      <NuxtPage />
+    </main>
     <Footer />
   </div>
 </template>
 
 <script lang="ts" setup>
 import "~/assets/css/tailwind.css";
-// import { useShopStore } from "~/stores/shop";
+import "~/assets/css/global.css";
+import { useShopStore } from "~/stores/shop";
 
-// // Global Store Actions
-// const { pending, error } = await useAsyncData("shop", () => {
-//   const shopStore = useShopStore();
-//   return shopStore.getShopGlobals();
-// });
-
-// Another way to get initial globals
-// Global Composable
-// useShopData();
+// Global Store Actions
+const { pending, error } = await useAsyncData("shop", () => {
+  const shopStore = useShopStore();
+  return shopStore.getShopGlobals();
+});
 </script>
