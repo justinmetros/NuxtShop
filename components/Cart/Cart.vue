@@ -2,13 +2,13 @@
   <section
     v-if="cartStore.cartOpen"
     ref="cart"
-    class="fixed top-20 bottom-0 right-0 w-80 bg-slate-400 p-4"
+    class="fixed bottom-0 right-0 p-4 top-20 w-80 bg-slate-400"
   >
-    <header class="mb-4 pb-4 border-black border-b-2">Cart</header>
+    <header class="pb-4 mb-4 border-b-2 border-black">Cart</header>
     <div
       v-for="item in lineItems"
       :key="item.node.id"
-      class="mb-4 pb-4 border-black border-b-2"
+      class="pb-4 mb-4 border-b-2 border-black"
     >
       <div>{{ item.node.merchandise.product.title }}</div>
       <div>qty: {{ item.node.quantity }}</div>

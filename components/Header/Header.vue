@@ -1,7 +1,8 @@
 <template>
   <header
-    class="font-sans sticky top-0 bg-white grid grid-cols-[200px_auto_200px] mb-2 p-4 shadow-[0px_1px_6px_0px_rgba(0,0,0,0.15)]"
+    class="sticky top-0 w-full h-12 mb-2 px-4 font-sans bg-white border-b-2 border-b-black grid items-center grid-cols-[100px_auto_100px] md:grid-cols-[200px_auto_200px] md:h-16"
   >
+    <Hamburger class="md:hidden" />
     <Logo />
     <Navigation />
     <CartIcon />

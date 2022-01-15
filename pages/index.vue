@@ -7,7 +7,7 @@
       </Head>
     </Html>
     <div>Index</div>
-    <div class="m-4 p-4 border-2 border-red-900">{{ description }}</div>
+    <div class="p-4 m-4 border-2 border-red-900">{{ description }}</div>
   </div>
 </template>
 

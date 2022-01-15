@@ -17,7 +17,7 @@
       </header>
 
       <section
-        class="grid grid-cols-2 gap-4 mx-4 md:mx-auto md:max-w-6xl md:grid-cols-4"
+        class="mx-4 grid grid-cols-2 gap-4 md:mx-auto md:max-w-6xl md:grid-cols-4"
       >
         <ProductCard
           v-for="product in collection.products.edges"

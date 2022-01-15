@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Html lang="en"></Html>
     <Header />
     <Cart />
     <main class="min-h-[80vh]">

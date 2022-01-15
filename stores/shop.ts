@@ -14,6 +14,7 @@ export const useShopStore = defineStore("shop", {
           },
         },
       },
+      menuOpen: false,
       moneyFormat: "$",
     };
   },
@@ -38,6 +39,13 @@ export const useShopStore = defineStore("shop", {
         return e;
       } finally {
         this.loading = false;
+      }
+    },
+    toggleMenu(state?: boolean) {
+      if (typeof state === "boolean") {
+        this.menuOpen = state;
+      } else {
+        this.menuOpen = !this.menuOpen;
       }
     },
   },
