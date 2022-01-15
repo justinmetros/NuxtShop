@@ -1,0 +1,51 @@
+/* 
+ * DM Sans 
+ * https://fonts.google.com/specimen/DM+Sans
+ */
+@font-face {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(~/assets/fonts/DMSans-Regular.woff2) format("woff2");
+}
+@font-face {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(~/assets/fonts/DMSans-Medium.woff2) format("woff2");
+}
+@font-face {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(~/assets/fonts/DMSans-Bold.woff2) format("woff2");
+}
+
+/* 
+ * DM Mono 
+ * https://fonts.google.com/specimen/DM+Mono
+ */
+@font-face {
+  font-family: "DM Mono";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(~/assets/fonts/DMMono-Light.woff2) format("woff2");
+}
+@font-face {
+  font-family: "DM Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(~/assets/fonts/DMMono-Regular.woff2) format("woff2");
+}
+@font-face {
+  font-family: "DM Mono";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(~/assets/fonts/DMMono-Medium.woff2) format("woff2");
+}

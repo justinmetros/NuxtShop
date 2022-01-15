@@ -11,7 +11,6 @@
 
 <script lang="ts" setup>
 import "~/assets/css/tailwind.css";
-import "~/assets/css/global.css";
 import { useShopStore } from "~/stores/shop";
 
 // Global Store Actions

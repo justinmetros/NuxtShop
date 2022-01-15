@@ -10,6 +10,10 @@ module.exports = {
   darkMode: "media",
   theme: {
     extend: {},
+    fontFamily: {
+      sans: ["DM Sans", "sans-serif"],
+      mono: ["DM Mono", "sans-serif"],
+    },
   },
   variants: {
     extend: {},
