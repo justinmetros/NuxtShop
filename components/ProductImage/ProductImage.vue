@@ -5,6 +5,7 @@
     :srcset="srcset"
     :sizes="sizes"
     :width="width"
+    loading="lazy"
     src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
   />
 </template>

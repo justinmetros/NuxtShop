@@ -30,7 +30,6 @@ const src = props.product?.images?.edges[0]?.node?.url ?? "";
 const width = props.product?.images?.edges[0]?.node?.width ?? "";
 const height = props.product?.images?.edges[0]?.node?.height ?? "";
 
-const sizes = `(max-width: ${breakpointsTailwind.md}px) 45vw,
-            20vw`;
+const sizes = `(max-width: ${breakpointsTailwind.md}px) 45vw, 20vw`;
 const srcset = getSrcset(src);
 </script>
