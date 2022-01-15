@@ -651,6 +651,11 @@
     estree-walker "^2.0.1"
     picomatch "^2.2.2"
 
+"@shopify/theme-images@^4.1.1":
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/@shopify/theme-images/-/theme-images-4.1.1.tgz#a33917de9cd444ca609a5030667206a3ca8e8130"
+  integrity sha512-eMkMvr1CQufsOtfcr9vMW8WWgRZMsY+qTqrLovzyww9lk4y1X7v6pSaCPvUMHS4EjHlMKQ4TNsMBHinZ/3N1lQ==
+
 "@trysound/sax@0.2.0":
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/@trysound/sax/-/sax-0.2.0.tgz#cccaab758af56761eb7bf37af6f03f326dd798ad"
@@ -5308,6 +5313,11 @@ shebang-regex@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/shebang-regex/-/shebang-regex-1.0.0.tgz#da42f49740c0b42db2ca9728571cb190c98efea3"
   integrity sha1-2kL0l0DAtC2yypcoVxyxkMmO/qM=
+
+shopify-storefront-api-typings@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/shopify-storefront-api-typings/-/shopify-storefront-api-typings-1.2.1.tgz#0c70f36aecc0705a9f993dca6c2a9383eebe1d8b"
+  integrity sha512-W1Xbyrj7twbxto0agFn0Qk+tXod7cdg5oLMGtApjXaEgqz+fmdR17rTh53zDh/bUJdJcsPsXgY7eyp0L9n8nBQ==
 
 side-channel@^1.0.4:
   version "1.0.4"

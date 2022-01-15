@@ -23,8 +23,10 @@ export const productByHandle = gql`
           cursor
           node {
             altText
+            height
             id
-            transformedSrc(maxWidth: 2048)
+            url
+            width
           }
         }
       }

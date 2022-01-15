@@ -1,3 +1,9 @@
+interface ShopifyImage {
+  altText: string;
+  id: string;
+  transformedSrc: string;
+}
+
 interface Price {
   amount: number;
   currencyCode: string;

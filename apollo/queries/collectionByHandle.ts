@@ -41,7 +41,7 @@ export const collectionByHandle = gql`
                 node {
                   height
                   id
-                  transformedSrc(maxWidth: 2048)
+                  url
                   width
                 }
               }

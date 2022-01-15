@@ -9,9 +9,13 @@
           <Meta name="description" :content="product.description" />
         </Head>
       </Html>
-      <img
-        :src="product.images.edges[0].node.transformedSrc"
+      <ProductImage
         :alt="product.handle"
+        :sizes="sizes"
+        :srcset="srcset"
+        :width="product.images?.edges[0]?.node?.width ?? ''"
+        :height="product.images?.edges[0]?.node?.height ?? ''"
+        class=""
       />
       <ProductTitle tag="h1" :title="product.title" variant="product" />
       <ProductPrice
@@ -30,7 +34,9 @@
 
 <script setup lang="ts">
 import { useQuery, useResult } from "@vue/apollo-composable";
-import { productByHandle } from "~~/apollo/queries/productByHandle";
+import { breakpointsTailwind } from "@vueuse/core";
+import { getSrcset } from "~/utils/images";
+import { productByHandle } from "~/apollo/queries/productByHandle";
 
 const route = useRoute();
 const handle = route.params.handle;
@@ -38,5 +44,10 @@ const handle = route.params.handle;
 const { result, loading, error } = useQuery(productByHandle, {
   handle,
 });
-const product = useResult(result, null, (data) => data.productByHandle);
+const product: any = useResult(result, null, (data) => data.productByHandle);
+
+// Product Image
+const src = computed(() => product.value.images?.edges[0]?.node?.url ?? "");
+const sizes = `(max-width: ${breakpointsTailwind.md}px) 95vw, 40vw`;
+const srcset = computed(() => getSrcset(src.value || ""));
 </script>
