@@ -17,10 +17,11 @@
       </header>
 
       <section
-        class="mx-4 grid grid-cols-2 gap-4 md:mx-auto md:max-w-6xl md:grid-cols-4"
+        class="grid grid-cols-2 gap-4 mx-4 md:mx-auto md:max-w-6xl md:grid-cols-4"
       >
         <ProductCard
-          v-for="product in collection.products.edges"
+          v-for="(product, index) in collection.products.edges"
+          :index="index"
           :key="product.node.id"
           :product="product.node"
         />
