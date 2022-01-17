@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <section>
     <LoaderPage v-if="loading" />
     <div v-else-if="error">Error</div>
     <div v-else>
@@ -9,13 +9,10 @@
           <Meta name="description" :content="collection?.description || ''" />
         </Head>
       </Html>
-      <header class="mb-4 text-center">
-        <p>{{ collection.title }}</p>
-        <div>
-          {{ collection.descriptionHtml }}
-        </div>
-      </header>
-
+      <CollectionHeader
+        :title="collection.title"
+        :description="collection.descriptionHtml"
+      />
       <section
         class="grid grid-cols-2 gap-4 mx-4 md:mx-auto md:max-w-6xl md:grid-cols-4"
       >
@@ -27,7 +24,7 @@
         />
       </section>
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts">
