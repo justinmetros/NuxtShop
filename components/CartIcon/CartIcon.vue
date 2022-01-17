@@ -6,7 +6,6 @@
     @keyup.enter="handleClick"
   >
     <ShoppingCartIcon class="w-6" aria-hidden />
-    cart
   </button>
 </template>
 

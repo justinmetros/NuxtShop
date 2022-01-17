@@ -6,7 +6,6 @@
     @keyup.enter="handleClick"
   >
     <MenuIcon class="w-6" aria-hidden />
-    =
   </button>
 </template>
 
