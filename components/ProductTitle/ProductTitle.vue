@@ -1,11 +1,6 @@
 <template>
   <div>
-    <component
-      v-if="title"
-      :is="tag || 'div'"
-      :variant="variant"
-      :class="classes"
-    >
+    <component v-if="title" :is="tag || 'div'">
       {{ title }}
     </component>
   </div>
@@ -15,11 +10,7 @@
 const props = defineProps<{
   tag?: string;
   title: string;
-  variant?: string;
 }>();
 
-const { tag, title, variant } = toRefs(props);
-const cardClasses = "text-base";
-const productClasses = "text-2xl";
-const classes = variant.value === "card" ? cardClasses : productClasses;
+const { tag, title } = toRefs(props);
 </script>

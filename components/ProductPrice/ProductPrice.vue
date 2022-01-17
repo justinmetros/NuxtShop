@@ -1,5 +1,5 @@
 <template>
-  <div class="flex">
+  <div class="flex tracking-wide">
     <div v-if="priceVaries">
       {{ formatPrice(priceRange?.minVariantPrice?.amount) }}
       -
