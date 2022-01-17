@@ -33,10 +33,6 @@ export default defineNuxtPlugin((nuxtApp: NuxtApp) => {
       nuxtApp.payload.data.apollo = apolloClient.extract();
     });
   } else {
-    // this gets out of sync, maybe need another solution to merge cahce?
-    // if (nuxtApp.payload.data.apollo) {
-    //   cache.restore(nuxtApp.payload.data.apollo);
-    // }
     apolloClient = new ApolloClient({
       link: httpLink,
       cache,

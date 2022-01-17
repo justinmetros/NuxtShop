@@ -6,11 +6,12 @@
     @keyup.enter="handleClick"
   >
     <ShoppingCartIcon class="w-6" aria-hidden />
+    cart
   </button>
 </template>
 
 <script setup lang="ts">
-import { ShoppingCartIcon } from "@heroicons/vue/solid";
+import ShoppingCartIcon from "@heroicons/vue/solid/esm/ShoppingCartIcon.js";
 import { useShopStore } from "~/stores/shop";
 import { useCartStore } from "~/stores/cart";
 

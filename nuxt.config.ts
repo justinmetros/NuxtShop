@@ -8,7 +8,11 @@ export default defineNuxtConfig({
   },
   buildModules: ["@pinia/nuxt", "@vueuse/nuxt"],
   build: {
-    transpile: ["@apollo/client", "ts-invariant/process"],
+    transpile: [
+      "@apollo/client",
+      "@vue/apollo-composable",
+      "ts-invariant/process",
+    ],
     postcss: {
       postcssOptions: {
         plugins: {
