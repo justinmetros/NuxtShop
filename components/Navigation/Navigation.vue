@@ -18,11 +18,7 @@
 <script setup>
 import { navLinks } from "~/constants";
 import { useShopStore } from "~/stores/shop";
-import {
-  breakpointsTailwind,
-  useBreakpoints,
-  onClickOutside,
-} from "@vueuse/core";
+import { breakpointsTailwind, useBreakpoints } from "@vueuse/core";
 
 const shopStore = useShopStore();
 const menuOpen = computed(() => shopStore.menuOpen);

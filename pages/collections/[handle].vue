@@ -13,27 +13,28 @@
         :title="collection.title"
         :description="collection.descriptionHtml"
       />
-      <section
-        class="grid grid-cols-2 gap-4 mx-4 md:mx-auto md:max-w-6xl md:grid-cols-4"
-      >
+      <ProductGrid>
         <ProductCard
           v-for="(product, index) in collection.products.edges"
           :index="index"
           :key="product.node.id"
           :product="product.node"
         />
-      </section>
+      </ProductGrid>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
 import { useQuery, useResult } from "@vue/apollo-composable";
-import { collectionByHandle } from "~~/apollo/queries/collectionByHandle";
+import { collectionByHandle } from "~/apollo/queries/collectionByHandle";
 
 const route = useRoute();
 const handle = route.params.handle;
 
-const { result, loading, error } = useQuery(collectionByHandle, { handle });
-const collection = useResult(result, null, (data) => data.collectionByHandle);
+const { result, loading, error } = useQuery(collectionByHandle, {
+  handle,
+  numProducts: 48,
+});
+const collection = useResult(result, [], (data) => data.collectionByHandle);
 </script>
