@@ -3,6 +3,7 @@ import { gql } from "graphql-tag";
 export const collectionByHandle = gql`
   query collection(
     $handle: String!
+    $numProducts: Int
     $sortKey: ProductCollectionSortKeys
     $reverse: Boolean
   ) {
@@ -18,7 +19,7 @@ export const collectionByHandle = gql`
         width
       }
       title
-      products(first: 48, sortKey: $sortKey, reverse: $reverse) {
+      products(first: $numProducts, sortKey: $sortKey, reverse: $reverse) {
         edges {
           cursor
           node {
