@@ -6,8 +6,12 @@
         <Meta name="description" content="Lorem ipsum" />
       </Head>
     </Html>
-    <div>Index</div>
     <div class="p-4 m-4 border-2 border-red-900">{{ description }}</div>
+    <FeaturedProducts
+      collectionHandle="frontpage"
+      :numberProducts="4"
+      title="Featured Products"
+    />
   </div>
 </template>
 
