@@ -2,11 +2,11 @@
   <div>
     <Html>
       <Head>
-        <Title>Index Page</Title>
-        <Meta name="description" content="Lorem ipsum" />
+        <Title>NuxtShop</Title>
+        <Meta name="description" :content="description" />
       </Head>
     </Html>
-    <div class="p-4 m-4 border-2 border-red-900">{{ description }}</div>
+    <div class="p-4 m-4 border-2 border-black">Welcome to NuxtShop</div>
     <FeaturedProducts
       collectionHandle="frontpage"
       :numberProducts="4"
