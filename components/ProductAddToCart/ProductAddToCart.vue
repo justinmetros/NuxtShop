@@ -1,7 +1,11 @@
 <template>
-  <button @click="addToCart" @keyup.enter="addToCart">
-    <span v-if="!selectedVariantId">{{ labelDisabled }}</span>
-    <span v-else>{{ labelActive }}</span>
+  <button
+    @click="addToCart"
+    @keyup.enter="addToCart"
+    :disabled="!selectedVariantId"
+    class="w-full p-4 text-center text-white bg-black disabled:opacity-75"
+  >
+    <span>{{ currentLabel }}</span>
   </button>
 </template>
 
@@ -15,6 +19,9 @@ const cartStore = useCartStore();
 const labelActive = "Add to Cart";
 const labelDisabled = "Select Variant";
 const selectedVariantId = computed(() => productStore.selectedVariantId);
+const currentLabel = computed(() =>
+  selectedVariantId ? labelActive : labelDisabled
+);
 
 const addToCart = () => {
   if (!selectedVariantId.value) {
@@ -22,5 +29,6 @@ const addToCart = () => {
     return;
   }
   cartStore.cartLinesAdd(selectedVariantId.value);
+  productStore.setSelectedVariantId("");
 };
 </script>
