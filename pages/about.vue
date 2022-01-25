@@ -6,9 +6,6 @@
         <Meta name="description" content="Lorem ipsum" />
       </Head>
     </Html>
-    <div>About</div>
-    <div>
-      <NuxtLink to="/">To Index</NuxtLink>
-    </div>
+    <div class="container mx-auto my-8 text-center">Add readme here</div>
   </div>
 </template>
