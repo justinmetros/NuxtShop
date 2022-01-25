@@ -1,17 +1,19 @@
 <template>
-  <LoaderPage v-if="loading" />
-  <div v-else-if="error">Error</div>
-  <ProductGrid v-else>
-    <div v-if="title" class="col-span-2 font-bold border-b-2 md:col-span-4">
-      {{ title }}
-    </div>
-    <ProductCard
-      v-for="(product, index) in collection.products.edges"
-      :index="index"
-      :key="product.node.id"
-      :product="product.node"
-    />
-  </ProductGrid>
+  <div v-if="collection">
+    <ProductGrid>
+      <div v-if="title" class="col-span-2 font-bold border-b-2 md:col-span-4">
+        {{ title }}
+      </div>
+      <ProductCard
+        v-for="(product, index) in collection.products.edges"
+        :index="index"
+        :key="product.node.id"
+        :product="product.node"
+      />
+    </ProductGrid>
+  </div>
+  <div v-else-if="error">Error loading featured products</div>
+  <div v-else></div>
 </template>
 
 <script setup lang="ts">
@@ -26,7 +28,7 @@ const props = defineProps<{
 
 const handle = props.collectionHandle;
 const numProducts = props.numberProducts || 4;
-const { result, loading, error } = useQuery(collectionByHandle, {
+const { result, error } = useQuery(collectionByHandle, {
   handle,
   numProducts,
 });
