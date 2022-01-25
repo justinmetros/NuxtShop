@@ -1,10 +1,11 @@
-<template>
-  <div>
-    <LoaderPage v-if="loading" />
-    <div v-else-if="error">Error</div>
-    <div v-else>
+<template :key="handle">
+  <section class="container mx-auto">
+    <div
+      v-if="product"
+      class="grid grid-cols-1 mx-auto my-4 md:grid-cols-[auto_minmax(300px,_1fr)] md:gap-8 md:my-8"
+    >
       <Html>
-        <Head v-if="product?.title && product.description">
+        <Head v-if="product?.title && product?.description">
           <Title>{{ product.title }}</Title>
           <Meta name="description" :content="product.description" />
         </Head>
@@ -17,19 +18,29 @@
         :height="product.images?.edges[0]?.node?.height ?? ''"
         class=""
       />
-      <ProductTitle tag="h1" :title="product.title" variant="product" />
-      <ProductPrice
-        :priceRange="product.priceRange"
-        :compareAtPriceRange="product.compareAtPriceRange"
-      />
-      <ProductVariants
-        label="Select Size & Color"
-        :variants="product.variants.edges"
-      />
-      <ProductAddToCart />
-      <ProductDescription :description="product.descriptionHtml" />
+      <div class="p-4 border-2 border-black">
+        <ProductTitle
+          tag="h1"
+          :title="product.title"
+          variant="product"
+          class="text-xl"
+        />
+        <ProductPrice
+          :priceRange="product.priceRange"
+          :compareAtPriceRange="product.compareAtPriceRange"
+          class="mb-4 md:mb-8"
+        />
+        <ProductVariants
+          label="Select option"
+          :variants="product.variants.edges"
+        />
+        <ProductAddToCart />
+        <ProductDescription :description="product.descriptionHtml" />
+      </div>
     </div>
-  </div>
+    <div v-else></div>
+    <div v-if="error">Error</div>
+  </section>
 </template>
 
 <script setup lang="ts">
@@ -39,11 +50,9 @@ import { getSrcset } from "~/utils/images";
 import { productByHandle } from "~/apollo/queries/productByHandle";
 
 const route = useRoute();
-const handle = route.params.handle;
+const handle = route.params.product;
 
-const { result, loading, error } = useQuery(productByHandle, {
-  handle,
-});
+const { result, error } = useQuery(productByHandle, { handle });
 const product: any = useResult(result, null, (data) => data.productByHandle);
 
 // Product Image

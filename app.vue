@@ -1,13 +1,10 @@
 <template>
-  <div>
-    <Html lang="en"></Html>
-    <Header />
-    <Cart />
-    <main class="min-h-[80vh]">
-      <NuxtPage />
-    </main>
-    <Footer />
-  </div>
+  <Header />
+  <Cart />
+  <main class="min-h-[75vh] px-4">
+    <NuxtPage />
+  </main>
+  <Footer />
 </template>
 
 <script lang="ts" setup>

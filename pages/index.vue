@@ -1,12 +1,16 @@
 <template>
-  <div>
+  <div class="container mx-auto">
     <Html>
       <Head>
         <Title>NuxtShop</Title>
         <Meta name="description" :content="description" />
       </Head>
     </Html>
-    <div class="p-4 m-4 border-2 border-black">Welcome to NuxtShop</div>
+    <div
+      class="flex items-center justify-center p-8 my-8 text-2xl border-2 border-black min-h-[8rem] md:min-h-[12rem]"
+    >
+      Welcome to NuxtShop
+    </div>
     <FeaturedProducts
       collectionHandle="frontpage"
       :numberProducts="4"
