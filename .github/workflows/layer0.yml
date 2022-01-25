@@ -1,0 +1,18 @@
+name: Deploy to Layer0
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy-to-layer0:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+          registry-url: https://npm-proxy.fury.io/moovweb/
+      - run: npm ci
+      - run: npm run deploy -- --token=$LAYER0_DEPLOY_TOKEN
+        env:
+          LAYER0_DEPLOY_TOKEN: ${{secrets.LAYER0_DEPLOY_TOKEN}}
