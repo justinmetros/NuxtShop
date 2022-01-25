@@ -2,19 +2,21 @@
   <section
     v-if="cartStore.cartOpen"
     ref="cart"
-    class="fixed bottom-0 right-0 p-4 top-20 w-80 bg-slate-400"
+    class="fixed top-0 bottom-0 right-0 z-10 p-4 bg-white border-l-2 border-black w-[90vw] md:w-[400px]"
   >
-    <header class="pb-4 mb-4 border-b-2 border-black">Cart</header>
-    <div
-      v-for="item in lineItems"
-      :key="item.node.id"
-      class="pb-4 mb-4 border-b-2 border-black"
-    >
-      <div>{{ item.node.merchandise.product.title }}</div>
-      <div>qty: {{ item.node.quantity }}</div>
-      <div>{{ item.node.estimatedCost.totalAmount.amount }}</div>
+    <CartHeader />
+    <div v-if="lineItems.length">
+      <CartItem
+        v-for="item in lineItems"
+        :key="item?.node?.id"
+        class="pb-4 mb-4 border-b-2 border-black"
+        :item="item?.node ?? {}"
+      />
+      <CartSummary />
     </div>
-    <a :href="cartStore.cart.checkoutUrl">Checkout</a>
+    <div v-else>
+      <CartEmpty />
+    </div>
   </section>
 </template>
 
