@@ -2,6 +2,7 @@ import { defineStore } from "pinia";
 import { useApolloClient } from "@vue/apollo-composable";
 import { cartCreate } from "~/apollo/mutations/cartCreate";
 import { cartLinesAdd } from "~/apollo/mutations/cartLinesAdd";
+import { cartLinesRemove } from "~/apollo/mutations/cartLinesRemove";
 import { checkoutUrl } from "~/apollo/queries/checkoutUrl";
 
 // TO-DO: provide apolloClient to pinia as plugin
@@ -95,9 +96,31 @@ export const useCartStore = defineStore("cart", {
           },
         });
         if (!data.cartLinesAdd) {
-          throw "cartCreate: error";
+          throw "cartAdd: error";
         }
         this.cart = data.cartLinesAdd.cart;
+        this.cartOpen = true;
+      } catch (e) {
+        return e;
+      } finally {
+        this.loading = false;
+      }
+    },
+    async cartLinesRemove(merchandiseId: string) {
+      try {
+        const { resolveClient } = useApolloClient();
+        const apolloClient = resolveClient();
+        const { data } = await apolloClient.mutate({
+          mutation: cartLinesRemove,
+          variables: {
+            lineIds: [merchandiseId],
+            cartId: this.cart.id,
+          },
+        });
+        if (!data.cartLinesRemove) {
+          throw "cartRemove: error";
+        }
+        this.cart = data.cartLinesRemove.cart;
         this.cartOpen = true;
       } catch (e) {
         return e;
