@@ -1,6 +1,6 @@
 <template>
   <header
-    class="flex flex-col justify-center items-center p-4 min-h-[10rem] md:min-h-[20rem]"
+    class="my-8 flex flex-col justify-center items-center p-4 min-h-[8rem] border-black border-2 md:min-h-[12rem]"
   >
     <h1 class="mb-2 text-2xl font-bold">{{ title }}</h1>
     <div v-html="description" class="text-sm"></div>
