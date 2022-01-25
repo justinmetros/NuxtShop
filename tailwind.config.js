@@ -11,7 +11,7 @@ module.exports = {
   theme: {
     extend: {},
     fontFamily: {
-      sans: ["DM Sans", "sans-serif"],
+      sans: ["DM Mono", "sans-serif"],
       mono: ["DM Mono", "sans-serif"],
     },
   },
