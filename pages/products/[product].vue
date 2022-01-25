@@ -18,7 +18,7 @@
         :height="product.images?.edges[0]?.node?.height ?? ''"
         class=""
       />
-      <div class="p-4 border-2 border-black">
+      <div class="p-4 mt-4 border-2 border-black md:mt-0">
         <ProductTitle
           tag="h1"
           :title="product.title"
