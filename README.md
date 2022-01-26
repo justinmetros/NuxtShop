@@ -111,12 +111,12 @@ Because NuxtShop is built in the open and on the bleeding-edge, there are a few 
 1. NuxtShop is built on Nuxt3 which at this time is still officially in beta
 2. NuxtShop uses the new shopify cart api which does not support shopify scripts on Plus yet. To use scripts, you can adjust to the checkout api
 
-# Notes
+# Updated Readme Coming Soon
 
 ### Shopify Setup
 
-- Shopify store with private app
-- Make All collection in Shopify
+- Create Shopify store with private app
+- Make an All collection in Shopify
 
 ### App Setup
 

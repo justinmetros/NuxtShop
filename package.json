@@ -28,6 +28,7 @@
     "node-fetch": "^3.1.0",
     "nuxt3": "latest",
     "pinia": "^2.0.9",
+    "pinia-plugin-persistedstate-2": "^0.2.8",
     "postcss": "^8.4.5",
     "tailwindcss": "^3.0.8"
   }
