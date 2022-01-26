@@ -20,8 +20,8 @@ export const useShopStore = defineStore("shop", {
   },
   actions: {
     async getShopGlobals() {
-      this.loading = true;
       try {
+        this.loading = true;
         const { resolveClient } = useApolloClient();
         const apolloClient = resolveClient();
         const { data } = await apolloClient.query({
@@ -32,9 +32,9 @@ export const useShopStore = defineStore("shop", {
           throw "getShopData: no response";
         }
 
-        this.description = data.shop?.description ?? "";
-        this.moneyFormat = data.shop?.moneyFormat ?? "$";
-        this.localization = data.localization ?? {};
+        this.description = data?.shop?.description ?? "";
+        this.moneyFormat = data?.shop?.moneyFormat ?? "$";
+        this.localization = data?.localization ?? {};
       } catch (e) {
         return e;
       } finally {

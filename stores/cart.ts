@@ -47,8 +47,8 @@ export const useCartStore = defineStore("cart", {
         if (!data.cartCreate.cart.id) {
           throw "cartCreate: error";
         }
-        this.cart.id = data.cartCreate.cart.id;
-        this.cart.checkoutUrl = data.cartCreate.cart.checkoutUrl;
+        this.cart.id = data?.cartCreate?.cart?.id ?? null;
+        this.cart.checkoutUrl = data?.cartCreate?.cart?.checkoutUrl ?? null;
       } catch (e) {
         return e;
       } finally {
@@ -73,9 +73,9 @@ export const useCartStore = defineStore("cart", {
           },
         });
         if (!data.checkoutUrl.cart.checkoutUrl) {
-          throw "checkoutUrl: error";
+          throw "getCheckoutUrl: error";
         }
-        this.cart.checkoutUrl = data.checkoutUrl.cart.checkoutUrl;
+        this.cart.checkoutUrl = data?.checkoutUrl?.cart?.checkoutUrl ?? null;
         return this.cart.checkoutUrl;
       } catch (e) {
         return e;
@@ -102,9 +102,9 @@ export const useCartStore = defineStore("cart", {
           },
         });
         if (!data.cartLinesAdd) {
-          throw "cartAdd: error";
+          throw "cartLinesAdd: error";
         }
-        this.cart = data.cartLinesAdd.cart;
+        this.cart = data?.cartLinesAdd?.cart;
         this.cartOpen = true;
       } catch (e) {
         return e;
@@ -116,15 +116,19 @@ export const useCartStore = defineStore("cart", {
       try {
         const { resolveClient } = useApolloClient();
         const apolloClient = resolveClient();
+        const cartId = this.cart.id;
+        if (!cartId) {
+          throw "cartLinesRemove: no cartId";
+        }
         const { data } = await apolloClient.mutate({
           mutation: cartLinesRemove,
           variables: {
             lineIds: [merchandiseId],
-            cartId: this.cart.id,
+            cartId,
           },
         });
         if (!data.cartLinesRemove) {
-          throw "cartRemove: error";
+          throw "cartLinesRemove: error";
         }
         this.cart = data.cartLinesRemove.cart;
         this.cartOpen = true;
