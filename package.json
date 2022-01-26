@@ -1,20 +1,28 @@
 {
-  "name": "nuxtshop",
-  "private": true,
-  "license": "MIT",
-  "engines": {
-    "node": "^14.16.0 || ^16.11.0 || ^17.0.0"
-  },
   "scripts": {
+    "layer0:dev": "layer0 dev",
+    "layer0:build": "layer0 build",
+    "layer0:deploy": "layer0 deploy",
     "dev": "nuxi dev",
     "build": "nuxi build",
     "start": "node .output/server/index.mjs",
     "get-shopify-fragment-types": "node ./apollo/schemaQuery.mjs",
     "deploy": "layer0 deploy"
   },
+  "name": "nuxtshop",
+  "private": true,
+  "license": "MIT",
+  "engines": {
+    "node": "^14.16.0 || ^16.11.0 || ^17.0.0"
+  },
   "devDependencies": {
     "@apollo/client": "^3.5.6",
     "@heroicons/vue": "^1.0.5",
+    "@layer0/cli": "^4.9.0",
+    "@layer0/core": "^4.9.0",
+    "@layer0/devtools": "^4.9.0",
+    "@layer0/nuxt3": "^4.9.0",
+    "@layer0/prefetch": "^4.9.0",
     "@nuxt/types": "^2.15.8",
     "@pinia/nuxt": "^0.1.8",
     "@shopify/theme-images": "^4.1.1",
