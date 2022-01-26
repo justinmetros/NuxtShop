@@ -7,10 +7,16 @@
       :height="imageHeight"
       class="self-start block object-contain w-20 h-auto mr-4"
     />
-    <div class="flex items-start justify-between w-full">
+    <div class="flex items-start justify-between w-full text-sm">
       <div>
-        <div>{{ item.merchandise.product.title }}</div>
-        <div>qty: {{ item.quantity }}</div>
+        <div class="text-base">{{ item.merchandise.product.title }}</div>
+        <div v-for="option in variantOptions" :key="option.value" class="flex">
+          <template v-if="option.value !== 'Default Title'">
+            <div class="mr-2">{{ option.name }}:</div>
+            <div>{{ option.value }}</div>
+          </template>
+        </div>
+        <div>QTY: {{ item.quantity }}</div>
         <div>{{ formattedPrice }}</div>
       </div>
       <button class="ml-4">
@@ -42,6 +48,7 @@ const imageHeight =
   props.item?.merchandise?.product?.featuredImage?.height ?? "";
 
 const id = props.item?.id;
+const variantOptions = props.item?.merchandise?.selectedOptions ?? null;
 
 const removeItem = () => cartStore.cartLinesRemove(id);
 

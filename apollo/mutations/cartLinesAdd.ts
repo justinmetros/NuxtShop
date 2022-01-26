@@ -87,6 +87,10 @@ export const cartLinesAdd = gql`
                     tags
                     title
                   }
+                  selectedOptions {
+                    name
+                    value
+                  }
                 }
               }
               quantity
