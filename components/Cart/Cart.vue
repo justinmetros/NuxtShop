@@ -2,7 +2,7 @@
   <section
     v-if="cartStore.cartOpen"
     ref="cart"
-    class="fixed top-0 bottom-0 right-0 z-10 p-4 bg-white border-l-2 border-black w-[90vw] md:w-[400px]"
+    class="fixed top-0 bottom-0 right-0 z-10 px-4 pb-4 bg-white border-l-2 border-black w-[90vw] md:w-[400px]"
   >
     <CartHeader />
     <div v-if="lineItems.length">
@@ -13,6 +13,7 @@
         :item="item?.node ?? {}"
       />
       <CartSummary />
+      <CartCheckout />
     </div>
     <div v-else>
       <CartEmpty />
