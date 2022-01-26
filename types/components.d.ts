@@ -43,3 +43,8 @@ interface Option {
   name: string;
   values: string[];
 }
+
+interface Amount {
+  amount: string;
+  currencyCode: string;
+}

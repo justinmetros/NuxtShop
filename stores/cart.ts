@@ -13,6 +13,12 @@ export const useCartStore = defineStore("cart", {
     return {
       cart: {
         checkoutUrl: null,
+        estimatedCost: {
+          subtotalAmount: <Amount>{},
+          totalAmount: <Amount>{},
+          totalDutyAmount: <Amount>{},
+          totalTaxAmount: <Amount>{},
+        },
         id: null,
         lines: {
           edges: [],
