@@ -4,6 +4,7 @@ import { cartCreate } from "~/apollo/mutations/cartCreate";
 import { cartLinesAdd } from "~/apollo/mutations/cartLinesAdd";
 import { cartLinesRemove } from "~/apollo/mutations/cartLinesRemove";
 import { checkoutUrl } from "~/apollo/queries/checkoutUrl";
+import { formatLocalePrice } from "~/utils/money";
 
 // TO-DO: provide apolloClient to pinia as plugin
 // https://pinia.vuejs.org/core-concepts/plugins.html#introduction
@@ -14,10 +15,22 @@ export const useCartStore = defineStore("cart", {
       cart: {
         checkoutUrl: null,
         estimatedCost: {
-          subtotalAmount: <Amount>{},
-          totalAmount: <Amount>{},
-          totalDutyAmount: <Amount>{},
-          totalTaxAmount: <Amount>{},
+          subtotalAmount: {
+            amount: "",
+            currencyCode: "USD",
+          },
+          totalTaxAmount: {
+            amount: "",
+            currencyCode: "USD",
+          },
+          totalDutyAmount: {
+            amount: "",
+            currencyCode: "USD",
+          },
+          totalAmount: {
+            amount: "",
+            currencyCode: "USD",
+          },
         },
         id: null,
         lines: {
@@ -141,5 +154,31 @@ export const useCartStore = defineStore("cart", {
   },
   getters: {
     lineItems: (state) => state.cart.lines.edges,
+    subtotalAmount: (state): string => {
+      const amount = +state.cart.estimatedCost.subtotalAmount.amount;
+      const code = state.cart.estimatedCost.subtotalAmount.currencyCode;
+      return formatLocalePrice(+amount, "en-US", code);
+    },
+    totalDutyAmount: (state): string => {
+      if (!state?.cart?.estimatedCost?.totalDutyAmount) {
+        return null;
+      }
+      const amount = +state?.cart?.estimatedCost?.totalDutyAmount?.amount;
+      const code = state?.cart?.estimatedCost?.totalDutyAmount?.currencyCode;
+      return formatLocalePrice(+amount, "en-US", code);
+    },
+    totalTaxAmount: (state): string => {
+      if (!state?.cart?.estimatedCost?.totalTaxAmount) {
+        return null;
+      }
+      const amount = +state.cart.estimatedCost.totalTaxAmount.amount;
+      const code = state.cart.estimatedCost.totalTaxAmount.currencyCode;
+      return formatLocalePrice(+amount, "en-US", code);
+    },
+    totalAmount: (state): string => {
+      const amount = +state.cart.estimatedCost.totalAmount.amount;
+      const code = state.cart.estimatedCost.totalAmount.currencyCode;
+      return formatLocalePrice(+amount, "en-US", code);
+    },
   },
 });
