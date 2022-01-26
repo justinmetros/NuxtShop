@@ -12,7 +12,7 @@ jobs:
         with:
           node-version: 14
           registry-url: https://npm-proxy.fury.io/moovweb/
-      - run: npm ci
-      - run: npm run deploy -- --token=$LAYER0_DEPLOY_TOKEN
+      - run: yarn install --frozen-lockfile
+      - run: yarn deploy -- --token=$LAYER0_DEPLOY_TOKEN
         env:
           LAYER0_DEPLOY_TOKEN: ${{secrets.LAYER0_DEPLOY_TOKEN}}
