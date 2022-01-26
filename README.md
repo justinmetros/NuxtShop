@@ -106,14 +106,7 @@ yarn build
 - Prettier
 - Eslint
 
-## Limitations
-
-Because NuxtShop is built in the open and on the bleeding-edge, there are a few limitations to be aware of:
-
-1. NuxtShop is built on Nuxt3 which at this time is still officially in beta
-2. NuxtShop uses the new Shopify Cart API which does not support Shopify Scripts on Plus yet. To use scripts, you can adjust to the Checkout API
-
-### Shopify Setup
+## Shopify Setup
 
 - Create a Shopify store
   - Tip: Sign up as a [Shopify Partner](https://www.shopify.com/partners) to get access to development stores.
@@ -121,7 +114,14 @@ Because NuxtShop is built in the open and on the bleeding-edge, there are a few 
 - Recommended reading: [Getting started with the Shopify Storefront API](https://shopify.dev/api/storefront/getting-started)
 - This project references a collection named 'All', but you can adjust that to whatever you like.
 
-### App Setup
+## App Setup
 
 - rename .env.sample to .env
 - Add your Shopify Access Token and \*.myshopify url to the .env variables
+
+## Limitations
+
+Because NuxtShop is built in the open and on the bleeding-edge, there are a few limitations to be aware of:
+
+1. NuxtShop is built on Nuxt3 which at this time is still officially in beta
+2. NuxtShop uses the new Shopify Cart API which does not support Shopify Scripts on Plus yet. To use scripts, you can adjust to the Checkout API
