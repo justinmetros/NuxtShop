@@ -1,4 +1,4 @@
-# Nuxt 3 Minimal Starter
+# NuxtShop
 
 We recommend to look at the [documentation](https://v3.nuxtjs.org).
 
@@ -28,12 +28,12 @@ yarn build
 
 Checkout the [deployment documentation](https://v3.nuxtjs.org/docs/deployment).
 
-# Notes
+# Updated Readme Coming Soon
 
 ### Shopify Setup
 
-- Shopify store with private app
-- Make All collection in Shopify
+- Create Shopify store with private app
+- Make an All collection in Shopify
 
 ### App Setup
 
