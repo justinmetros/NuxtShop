@@ -1,5 +1,5 @@
 <div align="center">
-<img src="NuxtShop_logo.png" alt="NuxtShop"/>
+<img src="nuxtshop_github.jpg" alt="NuxtShop"/>
 </div>
 
 # Introduction
