@@ -77,7 +77,7 @@ export const cartLinesAdd = gql`
                     featuredImage {
                       ... on Image {
                         thumbnail: url(
-                          transform: { maxWidth: 80, maxHeight: 80 }
+                          transform: { maxWidth: 160, maxHeight: 160 }
                         )
                       }
                       altText
@@ -86,6 +86,10 @@ export const cartLinesAdd = gql`
                     }
                     tags
                     title
+                  }
+                  selectedOptions {
+                    name
+                    value
                   }
                 }
               }
