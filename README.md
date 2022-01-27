@@ -66,6 +66,8 @@ NuxtShop uses the following technologies:
 - Shopify checkout.
 - 1-click deploy to Layer0 with features like [Real User Monitoring](https://www.layer0.co/rum)
 
+[![Deploy with Layer0](https://docs.layer0.co/button.svg)](https://app.layer0.co/deploy?repo=https%3A%2F%2Fgithub.com%2Fjustinmetros%2FNuxtShop&sgId=470c4986-7644-4416-b4ae-d7cad5814b59)
+
 > We recommend to look at the [documentation](https://v3.nuxtjs.org).
 
 ## Getting Started
@@ -125,7 +127,6 @@ Because NuxtShop is built in the open and on the bleeding-edge, there are a few 
 
 1. NuxtShop is built on Nuxt3 which at this time is still officially in beta
 2. NuxtShop uses the new Shopify Cart API which does not support Shopify Scripts on Plus yet. To use scripts, you can adjust to the Checkout API
-
 
 ## Troubleshoot
 
