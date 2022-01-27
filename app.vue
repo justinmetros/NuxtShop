@@ -2,7 +2,17 @@
   <Header />
   <Cart />
   <main class="min-h-[75vh] px-4">
-    <NuxtPage />
+    <div
+      v-if="
+        config.SHOPIFY_STOREFRONT_ENDPOINT &&
+        config.SHOPIFY_STOREFRONT_ACCESS_TOKEN
+      "
+    >
+      <NuxtPage />
+    </div>
+    <div v-else>
+      <GettingStarted />
+    </div>
   </main>
   <Footer />
 </template>
@@ -16,4 +26,6 @@ const { pending, error } = await useAsyncData("shop", () => {
   const shopStore = useShopStore();
   return shopStore.getShopGlobals();
 });
+
+const config = useRuntimeConfig();
 </script>

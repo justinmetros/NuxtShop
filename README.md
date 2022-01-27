@@ -125,3 +125,8 @@ Because NuxtShop is built in the open and on the bleeding-edge, there are a few 
 
 1. NuxtShop is built on Nuxt3 which at this time is still officially in beta
 2. NuxtShop uses the new Shopify Cart API which does not support Shopify Scripts on Plus yet. To use scripts, you can adjust to the Checkout API
+
+
+## Troubleshoot
+
+Deploying to Layer0? [Node 14](https://forum.layer0.co/t/layer0-doesnt-work-with-node-16/577) is the latest supported version.
