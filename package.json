@@ -2,7 +2,7 @@
   "name": "nuxtshop",
   "license": "MIT",
   "engines": {
-    "node": ">=14"
+    "node": "14"
   },
   "scripts": {
     "layer0:dev": "layer0 dev",
