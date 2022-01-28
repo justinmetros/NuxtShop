@@ -21,6 +21,12 @@
 import "~/assets/css/tailwind.css";
 import { useShopStore } from "~/stores/shop";
 
+useMeta({
+  htmlAttrs: {
+    lang: "en",
+  },
+});
+
 // Global Store Actions
 const { pending, error } = await useAsyncData("shop", () => {
   const shopStore = useShopStore();
