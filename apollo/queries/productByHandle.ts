@@ -1,6 +1,8 @@
 import { gql } from "graphql-tag";
+import { productVariants } from "~/apollo/fragments/productVariants";
 
 export const productByHandle = gql`
+  ${productVariants}
   query product($handle: String!) {
     productByHandle(handle: $handle) {
       availableForSale
@@ -49,26 +51,7 @@ export const productByHandle = gql`
       productType
       tags
       title
-      variants(first: 100) {
-        edges {
-          cursor
-          node {
-            availableForSale
-            id
-            priceV2 {
-              amount
-              currencyCode
-            }
-            quantityAvailable
-            selectedOptions {
-              name
-              value
-            }
-            sku
-            title
-          }
-        }
-      }
+      ...productVariants
       vendor
     }
   }
