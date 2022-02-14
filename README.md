@@ -7,6 +7,8 @@
 NuxtShop is a highly-customizable, open-source starter kit for building headless Shopify stores with Nuxt 3. It comes out of the box
 with a great developer experience and in-built performance practices as a foundation for a production-quality eCommerce site.
 
+NuxtShop was introduced at [Vue.js Nation 2022](https://vuejsnation.com/#schedule) and the [presentation is available on Vimeo](https://vimeo.com/671090407).
+
 ## Excerpt
 
 The fallout of the Covid-19 pandemic on eCommerce resulted in a meteoric rise in brand revenue and incremental sales. [Universal Standard](https://www.universalstandard.com), the world’s most size-inclusive fashion brand, migrated to a headless Shopify storefront with Nuxt.js, running on Layer0. Not only has the clothing company seen a 200% lift in mobile conversion rate and highest revenue day to date with the migration, but the team velocity has improved dramatically.
@@ -42,7 +44,7 @@ NuxtShop is not:
 
 - a shopify theme.
 - a full-featured, plug and play solution/production ready store.
-- a design system.
+- a design system or component library.
 - tightly coupled to any one tool - swap out what you want, add what you need.
 
 ## Technologies
