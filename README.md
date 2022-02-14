@@ -117,6 +117,7 @@ yarn build
 - In your new store, go to Apps, [create a private app](https://help.shopify.com/en/manual/apps/private-apps) and give it Storefront API access
 - Recommended reading: [Getting started with the Shopify Storefront API](https://shopify.dev/api/storefront/getting-started)
 - This project references a collection named 'All', but you can adjust that to whatever you like.
+- Optional: [Sample Shopify product CSVs](https://github.com/shopifypartners/product-csvs). The demo uses 'apparel.csv'.
 
 ## App Setup
 
